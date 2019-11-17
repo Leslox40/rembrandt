@@ -14,6 +14,9 @@
 #s9_footer { background: #414046;}
 #s10_copyright { background: #000;}
 
+
+
+
 /*--------  s1_header  -------*/
 #s1_header {
     background: url('img/interface-imgs/s1-header-lg-center.jpg');
@@ -33,16 +36,94 @@
 #s1_header aside {
     text-align: center;
     grid-column: 2 / 4;
-    grid-row: 2 / 3;
+    grid-row: 4/ 5;
 }
 
+@media (max-width: 992px) {
+    #s1_header { height: 50vh;}
+    #s1_header .display-4 { font-size: 28px; }
+    #s1_header h5 { font-size: 16px;}
+}
+
+
+
+
+
+
+
+
+
+
 /*--------  s2_trio  -------*/
+
+.myGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+
+/* media queries */
+@media (max-width: 768px) { 
+    .myGrid {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 10px;
+    }
+
+    .mySubGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        grid-gap: 15px;
+    }
+ }
+
+@media (max-width: 576px) { 
+    .myGrid {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2, auto);
+    }
+
+    .mySubGrid {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, auto);
+        grid-gap: 15px;
+    }
+ }
 
 
 /*--------  s3_painting_of_the_week  -------*/
 
 
 /*--------  s4_about  -------*/
+.s4_about_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 10px;
+    grid-template-areas:
+        "img-selfportrait img-selfportrait img-selfportrait"
+        "hd-about hd-about hd-about"
+        "txt-about txt-about txt-about"
+    ;
+}
+
+.img-selfportrait {
+    grid-area: img-selfportrait;
+    grid-column: 2 / 3;
+}
+.hd-about {
+    grid-area: hd-about;
+    text-align: center;
+}
+
+.txt-about {
+    grid-area: txt-about;
+}
+
+
+
+
 
 
 /*--------  s5_prints  -------*/
@@ -116,8 +197,4 @@
 /* -------------------------------------------------*/
 
 /*----- s1_header ----- */
-@media (max-width: 992px) {
-    #s1_header { height: 50vh;}
-    #s1_header .display-4 { font-size: 28px; }
-    #s1_header h5 { font-size: 16px;}
-}
+
