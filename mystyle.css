@@ -180,6 +180,7 @@
 .my-paintings-container {
     display: grid;
     min-height: 600px;
+    background-color: white;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 1fr);
     grid-template-areas:
@@ -275,8 +276,138 @@
 
 /*--------  s8_contact  -------*/
 
+.contact-copy { grid-area: contact-copy; }
+.contact-map { grid-area: contact-map; }
+.contact-img {grid-area: contact-img; }
+
+.contacts_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-template: 
+        "contact-copy contact-map contact-map"
+        "contact-img contact-map contact-map"
+    ;
+}
+
+@media (max-width: 768px) {
+    .contacts_grid {
+        grid-template-columns: repeat(2, auto);
+        grid-auto-rows: repeat(3, auto);
+        grid-template: 
+            "contact-img contact-copy"
+            "contact-map contact-map"
+            "contact-map contact-map"
+        ;
+    }
+
+    .contact-img {
+        justify-self: end;
+    }
+
+}
+
+@media (max-width: 576px) { 
+    .contacts_grid {
+        grid-template-columns: auto;
+        grid-auto-rows: repeat(4, auto);
+        grid-template: 
+            "contact-img"
+            "contact-copy"
+            "contact-map"
+            "contact-map"
+        ;
+    }
+
+    .contact-img {
+        transform: scaleX(-1);
+        justify-self: center;
+    }
+
+    .contact-copy {
+        text-align: center;
+    }
+ }
 
 /*--------  s9_footer  -------*/
+
+.footer_hours { grid-area: footer_hours; }
+.footer_menu { grid-area: footer_menu; }
+.footer_museum { grid-area: footer_museum; }
+.footer_painting_names { grid-area: footer_painting_names; }
+.footer_links { grid-area: footer_links; }
+.footer_img { grid-area: footer_img; }
+
+.s9_footer_grid {
+    font-size: small;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, auto);
+    grid-gap: 10px;
+    grid-template-areas: 
+        "footer_hours"
+        "footer_menu"
+        "footer_museum"
+        "footer_painting_names"
+        "footer_links"
+        "footer_img"
+    ;
+}
+
+.footer_museum h1 {
+    text-align: center;
+}
+
+.footer_museum, .footer_links {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.footer_img {
+    width: 50%;
+    justify-self: flex-end;
+}
+
+.footer_hours {
+    text-align: left;
+}
+
+@media (max-width: 767px) {
+    .footer_menu, .footer_museum, .footer_painting_names, .footer_links {
+        border-top: 1px dashed black;
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .footer_img {
+        transform: scaleX(-1);
+    }
+
+    .footer_hours {
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .s9_footer_grid {
+        font-size: initial;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "footer_hours footer_img"
+            "footer_menu footer_museum"
+            "footer_painting_names footer_links"
+        ;
+    }
+
+    .footer_museum, .footer_links, .footer_links h1 {
+        flex: none;
+        padding-top: 0;
+        text-align: left;
+    }
+}
 
 
 /*--------  s10_copyright  -------*/
